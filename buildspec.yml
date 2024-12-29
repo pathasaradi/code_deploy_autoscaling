@@ -1,0 +1,33 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      # Use the appropriate runtime version (e.g., for Java if needed, Apache dependencies)
+      java: openjdk11
+    commands:
+      - echo Installing dependencies...
+      # Add any additional installation steps if needed, like Apache, etc.
+
+  pre_build:
+    commands:
+      - echo Running pre-build steps...
+      # Any pre-build steps like compiling, testing, etc. can go here.
+
+  build:
+    commands:
+      - echo Building the application...
+      # This phase is typically for compiling code or building Docker images.
+      # If you had Java code or other build steps, they'd go here, but since you have a static HTML app,
+      # this phase mostly confirms that your content is ready for deployment.
+
+  post_build:
+    commands:
+      - echo Post-build steps: Moving files to the appropriate locations...
+      - mkdir -p /var/www/html
+      - cp web/index.html /var/www/html/
+      - echo Build and deployment steps completed.
+
+artifacts:
+  files:
+    - /var/www/html/index.html
