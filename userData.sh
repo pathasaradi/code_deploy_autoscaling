@@ -18,5 +18,5 @@ sudo service codedeploy-agent status
 
 # install httpd
 yum install httpd -y
-echo "<h1>Deployed with CodeDeploy: v1.0</h1>" > /var/www/html/index.html
+echo "<h1>Hello From Ec2: v1.0</h1>" > /var/www/html/index.html
 service httpd start; chkconfig httpd on
