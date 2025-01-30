@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
 files:
-  # source: web/index.html
-  # destination: /var/www/html
+  - source: web/index.html
+    destination: /var/www/html
 hooks:
   BeforeInstall:
     - location: scripts/display.sh
