@@ -1,17 +1,17 @@
 version: 0.0
 os: linux
 files:
-  - source: web/index.html
-    destination: /var/www/html
+  # source: web/index.html
+  # destination: /var/www/html
 hooks:
   BeforeInstall:
     - location: scripts/display.sh
       timeout: 30
       runas: root
-  #AfterInstall:
-    # location: scripts/change_permissions.sh
-      #timeout: 30
-      #runas: root
+  AfterInstall:
+    - location: scripts/change_permissions.sh
+      timeout: 30
+      runas: root
   ApplicationStop:
     - location: scripts/stop_server.sh
       timeout: 30
